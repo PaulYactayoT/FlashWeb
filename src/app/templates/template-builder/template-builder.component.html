@@ -1,0 +1,232 @@
+<div class="template-builder-container">
+  <header class="builder-header">
+    <button class="back-button" (click)="router.navigate(['/'])">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Volver a plantillas
+    </button>
+    <h1>Personalizando: {{ template?.name }}</h1>
+    <div class="progress-indicator">
+      <div *ngFor="let step of [1, 2, 3, 4]; let i = index" class="progress-step"
+        [class.active]="activeStep === step + 1" [class.completed]="activeStep > step + 1">
+        <div class="step-number">{{ step }}</div>
+        <div class="step-label">{{ getStepTitle(step) }}</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="builder-content">
+    <div *ngIf="activeStep === 1" class="step-content">
+      <h2>Información de tu Negocio</h2>
+      <p>Completa los datos básicos de tu negocio para personalizar tu página web.</p>
+
+      <form [formGroup]="businessForm" class="business-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="businessName">Nombre del Negocio *</label>
+            <input type="text" id="businessName" formControlName="businessName"
+              placeholder="Ej: Restaurante Sabores Peruanos">
+            <div *ngIf="businessForm.get('businessName')?.invalid && businessForm.get('businessName')?.touched"
+              class="error-message">
+              El nombre del negocio es requerido
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="businessType">Tipo de Negocio *</label>
+            <input type="text" id="businessType" formControlName="businessType"
+              placeholder="Ej: Restaurante, Farmacia, etc.">
+            <div *ngIf="businessForm.get('businessType')?.invalid && businessForm.get('businessType')?.touched"
+              class="error-message">
+              El tipo de negocio es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="description">Descripción *</label>
+          <textarea id="description" formControlName="description" rows="3"
+            placeholder="Describe tu negocio y los servicios que ofreces"></textarea>
+          <div *ngIf="businessForm.get('description')?.invalid && businessForm.get('description')?.touched"
+            class="error-message">
+            La descripción es requerida
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="address">Dirección *</label>
+            <input type="text" id="address" formControlName="address" placeholder="Ej: Av. Principal 123, Lima">
+            <div *ngIf="businessForm.get('address')?.invalid && businessForm.get('address')?.touched"
+              class="error-message">
+              La dirección es requerida
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Teléfono *</label>
+            <input type="tel" id="phone" formControlName="phone" placeholder="Ej: 987654321">
+            <div *ngIf="businessForm.get('phone')?.invalid && businessForm.get('phone')?.touched" class="error-message">
+              <div *ngIf="businessForm.get('phone')?.errors?.['required']">El teléfono es requerido</div>
+              <div *ngIf="businessForm.get('phone')?.errors?.['pattern']">Ingresa un teléfono válido (9 dígitos)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" formControlName="email" placeholder="Ej: contacto@tunegocio.com">
+            <div *ngIf="businessForm.get('email')?.invalid && businessForm.get('email')?.touched" class="error-message">
+              <div *ngIf="businessForm.get('email')?.errors?.['required']">El email es requerido</div>
+              <div *ngIf="businessForm.get('email')?.errors?.['email']">Ingresa un email válido</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="openingHours">Horario de Atención *</label>
+            <input type="text" id="openingHours" formControlName="openingHours"
+              placeholder="Ej: Lunes a Domingo 8am - 10pm">
+            <div *ngIf="businessForm.get('openingHours')?.invalid && businessForm.get('openingHours')?.touched"
+              class="error-message">
+              El horario es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Redes Sociales (Opcional)</label>
+          <div class="social-media-grid">
+            <div class="form-group">
+              <label for="facebook">Facebook</label>
+              <input type="url" id="facebook" formControlName="socialMedia.facebook"
+                placeholder="https://facebook.com/tunegocio">
+            </div>
+            <div class="form-group">
+              <label for="instagram">Instagram</label>
+              <input type="url" id="instagram" formControlName="socialMedia.instagram"
+                placeholder="https://instagram.com/tunegocio">
+            </div>
+            <div class="form-group">
+              <label for="twitter">Twitter</label>
+              <input type="url" id="twitter" formControlName="socialMedia.twitter"
+                placeholder="https://twitter.com/tunegocio">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="activeStep === 2" class="step-content">
+      <h2>Personalización de Diseño</h2>
+      <p>Ajusta los colores y elementos visuales de tu página web.</p>
+
+      <div class="customization-options">
+        <div *ngIf="template" class="color-picker">
+          <label>Color Principal</label>
+          <div class="color-preview" [style.background-color]="template.colorScheme.primary"></div>
+          <input type="color" [value]="template.colorScheme.primary"
+            (change)="template.colorScheme.primary = $event.target.value; generatePreview()">
+        </div>
+
+        <div *ngIf="template" class="color-picker">
+          <label>Color Secundario</label>
+          <div class="color-preview" [style.background-color]="template.colorScheme.secondary"></div>
+          <input type="color" [value]="template.colorScheme.secondary"
+            (change)="template.colorScheme.secondary = $event.target.value; generatePreview()">
+        </div>
+
+        <div *ngIf="template" class="color-picker">
+          <label>Color de Fondo</label>
+          <div class="color-preview" [style.background-color]="template.colorScheme.accent"></div>
+          <input type="color" [value]="template.colorScheme.accent"
+            (change)="template.colorScheme.accent = $event.target.value; generatePreview()">
+        </div>
+      </div>
+
+      <div class="template-features">
+        <h3>Características de esta plantilla:</h3>
+        <ul>
+          <li *ngFor="let feature of template?.features">{{ feature }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div *ngIf="activeStep === 3" class="step-content">
+      <h2>Vista Previa de tu Página Web</h2>
+      <p>Revisa cómo se verá tu página web antes de descargarla.</p>
+
+      <div class="preview-container-embedded">
+        <app-template-preview-embedded [businessInfo]="businessDataService.getBusinessInfo()"
+          [templateId]="template?.id || 'corporate-1'">
+        </app-template-preview-embedded>
+      </div>
+    </div>
+
+    <div *ngIf="activeStep === 4" class="step-content">
+      <h2>¡Tu Página Web está Lista!</h2>
+      <p>Descarga tu página web y súbela a tu hosting para que esté disponible en línea.</p>
+
+      <div class="download-section">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+            stroke="#28A745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+
+        <div class="download-info">
+          <h3>{{ businessForm.value.businessName || 'Tu Negocio' }}.html</h3>
+          <p>Archivo HTML listo para usar</p>
+          <p>Tamaño: ~{{ previewHtml.length / 1024 | number:'1.1-1' }} KB</p>
+        </div>
+
+        <button class="btn download" (click)="downloadWebsite()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Descargar Página Web
+        </button>
+      </div>
+
+      <div class="next-steps">
+        <h3>Próximos Pasos</h3>
+        <ol>
+          <li>Descarga tu archivo HTML</li>
+          <li>Súbelo a tu servicio de hosting (ej: Netlify, Vercel, GitHub Pages)</li>
+          <li>Comparte el enlace de tu nueva página web con tus clientes</li>
+          <li>Actualiza la información cuando sea necesario</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <footer class="builder-footer">
+    <div class="navigation-buttons">
+      <button *ngIf="activeStep > 1" class="btn secondary" (click)="prevStep()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Anterior
+      </button>
+
+      <button *ngIf="activeStep < 4" class="btn primary" (click)="nextStep()">
+        {{ activeStep === 3 ? 'Finalizar' : 'Siguiente' }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </footer>
+</div>

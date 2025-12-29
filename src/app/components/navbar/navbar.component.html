@@ -1,0 +1,35 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+    <div class="container">
+        <div class="nav-content">
+            <a routerLink="/" class="logo" (click)="closeMenu()">
+                <div class="logo-container">
+                    <app-logo-lightning></app-logo-lightning>
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">FlashWeb</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()"
+                aria-label="Toggle menu">
+                <span class="hamburger" [class.active]="isMenuOpen()"></span>
+            </button>
+
+            <div class="nav-links" [class.active]="isMenuOpen()">
+                <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                    (click)="closeMenu()">Inicio</a>
+                <a routerLink="/quienes-somos" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Quiénes
+                    somos</a>
+                <a routerLink="/servicios" class="nav-link" routerLinkActive="active"
+                    (click)="closeMenu()">Servicios</a>
+                <a routerLink="/como-trabajamos" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Cómo
+                    trabajamos</a>
+                <a routerLink="/caracteristicas" class="nav-link" routerLinkActive="active"
+                    (click)="closeMenu()">Características</a>
+            </div>
+
+            <a routerLink="/" fragment="contacto" class="btn btn-gold btn-cta" (click)="closeMenu()">
+                Comenzar
+            </a>
+        </div>
+    </div>
+</nav>

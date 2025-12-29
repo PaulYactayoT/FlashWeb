@@ -1,0 +1,11 @@
+@if (showIntro()) {
+<div class="lightning-intro" [@fadeOut]="animationState()">
+    <div class="lightning-container">
+        <img src="assets/lightning-bolt.png" class="lightning-bolt" alt="Lightning Intro" />
+        <div class="flash-overlay"></div>
+    </div>
+    <div class="logo-container">
+        <h1 class="logo-text">FlashWeb</h1>
+    </div>
+</div>
+}

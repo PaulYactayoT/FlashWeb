@@ -1,0 +1,11 @@
+/* Video Background Styles */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    object-fit: fill;
+    /* Forces the entire video to be visible by stretching if needed */
+}

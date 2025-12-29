@@ -1,0 +1,49 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f0f8ff"/>
+  
+  <!-- Header -->
+  <rect width="800" height="80" fill="#008b8b"/>
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" font-weight="bold">💊 Farmacia Online</text>
+  <text x="700" y="50" font-family="Arial, sans-serif" font-size="18" fill="#ffffff">🛒 Carrito</text>
+  
+  <!-- Hero Section -->
+  <rect y="80" width="800" height="120" fill="#20b2aa"/>
+  <text x="400" y="130" font-family="Arial, sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="bold">Tu Salud, Nuestra Prioridad</text>
+  <text x="400" y="165" font-family="Arial, sans-serif" font-size="16" fill="#e0f7f7" text-anchor="middle">Envío rápido • Consultas virtuales • Recetas online</text>
+  
+  <!-- Categories -->
+  <rect y="220" width="800" height="60" fill="#e0f7f7"/>
+  <rect x="50" y="235" width="150" height="35" rx="17" fill="#ffffff" stroke="#008b8b" stroke-width="2"/>
+  <text x="125" y="258" font-family="Arial, sans-serif" font-size="14" fill="#008b8b" text-anchor="middle" font-weight="bold">💊 Medicamentos</text>
+  
+  <rect x="220" y="235" width="150" height="35" rx="17" fill="#ffffff" stroke="#008b8b" stroke-width="2"/>
+  <text x="295" y="258" font-family="Arial, sans-serif" font-size="14" fill="#008b8b" text-anchor="middle" font-weight="bold">🌿 Vitaminas</text>
+  
+  <rect x="390" y="235" width="150" height="35" rx="17" fill="#ffffff" stroke="#008b8b" stroke-width="2"/>
+  <text x="465" y="258" font-family="Arial, sans-serif" font-size="14" fill="#008b8b" text-anchor="middle" font-weight="bold">🧴 Cuidado</text>
+  
+  <rect x="560" y="235" width="180" height="35" rx="17" fill="#ffffff" stroke="#008b8b" stroke-width="2"/>
+  <text x="650" y="258" font-family="Arial, sans-serif" font-size="14" fill="#008b8b" text-anchor="middle" font-weight="bold">📋 Recetas Online</text>
+  
+  <!-- Product Grid -->
+  <rect x="60" y="310" width="200" height="160" rx="8" fill="#ffffff" stroke="#20b2aa" stroke-width="2"/>
+  <text x="160" y="370" font-family="Arial, sans-serif" font-size="40" fill="#008b8b" text-anchor="middle">💊</text>
+  <text x="160" y="410" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Paracetamol 500mg</text>
+  <text x="160" y="440" font-family="Arial, sans-serif" font-size="16" fill="#008b8b" text-anchor="middle" font-weight="bold">$12.99</text>
+  
+  <rect x="300" y="310" width="200" height="160" rx="8" fill="#ffffff" stroke="#20b2aa" stroke-width="2"/>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="40" fill="#ffa500" text-anchor="middle">🌿</text>
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Vitamina C 1000mg</text>
+  <text x="400" y="440" font-family="Arial, sans-serif" font-size="16" fill="#008b8b" text-anchor="middle" font-weight="bold">$18.50</text>
+  
+  <rect x="540" y="310" width="200" height="160" rx="8" fill="#ffffff" stroke="#20b2aa" stroke-width="2"/>
+  <text x="640" y="370" font-family="Arial, sans-serif" font-size="40" fill="#ff6b9d" text-anchor="middle">🧴</text>
+  <text x="640" y="410" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Protector Solar SPF50</text>
+  <text x="640" y="440" font-family="Arial, sans-serif" font-size="16" fill="#008b8b" text-anchor="middle" font-weight="bold">$24.99</text>
+  
+  <!-- Footer -->
+  <rect y="520" width="800" height="80" fill="#008b8b"/>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">✓ Productos Certificados ✓ Envío 24h ✓ Consulta Médica Virtual</text>
+  <text x="400" y="580" font-family="Arial, sans-serif" font-size="12" fill="#e0f7f7" text-anchor="middle">Productos • Recetas • Delivery • Contacto</text>
+</svg>

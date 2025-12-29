@@ -1,0 +1,52 @@
+<section id="plantillas" class="template-showcase section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nuestras <span class="gradient-text">Plantillas</span></h2>
+            <p class="section-subtitle">
+                Diseños profesionales listos para adaptar a tu negocio
+            </p>
+        </div>
+
+        <div class="filter-buttons">
+            <button *ngFor="let category of categories" [class.active]="activeCategory() === category.id"
+                (click)="setCategory(category.id)" class="filter-btn">
+                {{ category.name }}
+            </button>
+        </div>
+
+        <div class="templates-grid">
+            @for (template of filteredTemplates(); track template.id) {
+            <div class="template-card">
+                <div class="template-image">
+                    <img [src]="template.image" [alt]="template.title">
+                    <div class="template-overlay">
+                        <button class="btn btn-primary" (click)="viewDemo(template.id)">Ver Demo</button>
+                    </div>
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">{{ template.title }}</h3>
+                        <span class="template-badge">{{ template.category }}</span>
+                    </div>
+                    <p class="template-description">{{ template.description }}</p>
+                    <ul class="template-features">
+                        @for (feature of template.features; track feature) {
+                        <li>{{ feature }}</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+        @if (filteredTemplates().length === 0) {
+        <div class="no-results">
+            <p>No se encontraron plantillas en esta categoría.</p>
+        </div>
+        }
+    </div>
+</section>
+
+@if (modalOpen()) {
+<app-template-preview-modal [template]="selectedTemplate()" (close)="closeModal()"></app-template-preview-modal>
+}

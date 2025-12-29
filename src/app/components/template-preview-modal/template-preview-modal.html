@@ -1,0 +1,1142 @@
+<div class="modal-backdrop" (click)="onClose()"></div>
+
+<div class="modal-container">
+    <div class="modal-header">
+        <div class="header-info">
+            <span class="preview-badge">Vista Previa Interactiva</span>
+            <h3>{{ template?.title }}</h3>
+        </div>
+        <button class="close-btn" (click)="onClose()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <div class="modal-body" #modalBody>
+
+        <!-- LEGAL TEMPLATE -->
+        @if (template?.categoryId === 'legal') {
+        <div class="mock-browser legal-theme">
+            <nav class="mock-nav">
+                <div class="mock-container">
+                    <div class="mock-logo">⚖️ <span class="logo-text"><span class="firm-name">{{
+                                businessInfo?.businessName || 'Pearson Specter' }}</span></span></div>
+                    <div class="mock-links">
+                        <a [class.active]="activeTab() === 'home'" (click)="setTab('home')">Inicio</a>
+                        <a [class.active]="activeTab() === 'areas'" (click)="setTab('areas')">Áreas de Práctica</a>
+                        <a [class.active]="activeTab() === 'contact'" (click)="setTab('contact')"
+                            class="btn-mock">Consulta Gratuita</a>
+                    </div>
+                </div>
+            </nav>
+
+            @if (activeTab() === 'home') {
+            <div class="mock-hero">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Excelencia Legal &<br>Compromiso Total</h1>
+                    <p class="hero-subtitle">Más de 20 años defendiendo sus derechos con integridad y resultados
+                        probados.</p>
+                    <div class="hero-buttons">
+                        <button class="primary-btn" (click)="setTab('contact')">Agendar Consulta</button>
+                        <button class="secondary-btn" (click)="showTeamPage()">Conozca al Equipo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mock-stats">
+                <div class="stat-item">
+                    <span class="number">20+</span>
+                    <span class="label">Años de Experiencia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">500+</span>
+                    <span class="label">Casos Ganados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">100%</span>
+                    <span class="label">Compromiso</span>
+                </div>
+            </div>
+
+            <div class="why-choose-us">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h2>¿Por qué elegirnos?</h2>
+                        <div class="divider"></div>
+                        <p class="main-desc">
+                            Somos una firma de abogados orientada a la estrategia, no a la improvisación.
+                            Abordamos cada caso con rigor jurídico, análisis profundo del riesgo y una
+                            comprensión clara de los objetivos del cliente.
+                        </p>
+                        <p>
+                            Nuestra práctica combina experiencia técnica, negociación efectiva y una defensa firme
+                            cuando el escenario lo exige. No prometemos atajos; entregamos soluciones legales sólidas,
+                            decisiones informadas y representación que protege su posición hoy y fortalece su futuro.
+                        </p>
+                    </div>
+                    <div class="image-content">
+                        <img src="/assets/statue_of_justice.png" alt="Lady Justice" class="statue-img">
+                    </div>
+                </div>
+            </div>
+            }
+
+            @if (activeTab() === 'areas') {
+            <div class="practice-areas-page">
+                <div class="areas-header">
+                    <h2>Nuestras Áreas de Práctica</h2>
+                    <p>Excelencia legal en múltiples disciplinas</p>
+                </div>
+                <div class="areas-grid">
+                    <div class="area-card">
+                        <div class="icon-box">🏢</div>
+                        <h3>Derecho Corporativo</h3>
+                        <p>Asesoramos a empresas en su constitución, fusiones, adquisiciones, contratos comerciales y
+                            gobierno corporativo con visión estratégica.</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="icon-box">👥</div>
+                        <h3>Derecho Laboral</h3>
+                        <p>Representación en conflictos laborales, negociaciones colectivas, despidos y asesoría en
+                            cumplimiento normativo laboral.</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="icon-box">📄</div>
+                        <h3>Derecho Civil</h3>
+                        <p>Contratos, obligaciones, responsabilidad civil y asesoría en asuntos patrimoniales para
+                            proteger sus intereses personales.</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="icon-box">🛡️</div>
+                        <h3>Derecho Penal</h3>
+                        <p>Defensa penal especializada, representación en procesos judiciales y asesoría en delitos
+                            económicos y empresariales.</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="icon-box">⚖️</div>
+                        <h3>Litigios y Arbitraje</h3>
+                        <p>Resolución de conflictos mediante litigios, mediación y arbitraje nacional e internacional
+                            con altas tasas de éxito.</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="icon-box">🏛️</div>
+                        <h3>Derecho Tributario</h3>
+                        <p>Planificación fiscal, cumplimiento tributario, defensa ante auditorías y optimización de
+                            cargas impositivas legales.</p>
+                    </div>
+                </div>
+            </div>
+
+            }
+            @if (activeTab() === 'contact') {
+            <div class="mock-content">
+                <div class="contact-header">
+                    <h2>Contáctenos</h2>
+                    <p>La primera consulta es completamente gratuita y confidencial.</p>
+                </div>
+                @if (!formSubmitted()) {
+                <div class="mock-form-container">
+                    <form class="mock-form" (submit)="$event.preventDefault(); submitForm()">
+                        <div class="form-group">
+                            <label>Nombre Completo</label>
+                            <input type="text" placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <input type="email" placeholder="ejemplo@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" placeholder="+51 999 999 999">
+                        </div>
+                        <div class="form-group">
+                            <label>Detalle su caso</label>
+                            <textarea rows="4" placeholder="Describa brevemente su situación legal..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Solicitud</button>
+                    </form>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <strong>📍 Dirección</strong>
+                            <p>{{ businessInfo?.address || 'Av. Principal 123, Oficina 405' }}<br>{{
+                                businessInfo?.businessType || 'Centro Financiero' }}</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>📞 Teléfono</strong>
+                            <p>{{ businessInfo?.phone || '(01) 555-0123' }}</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>✉️ Email</strong>
+                            <p>{{ businessInfo?.email || 'contacto@justicia.com' }}</p>
+                        </div>
+                    </div>
+                </div>
+                } @else {
+                <div class="success-message">
+                    <div class="success-icon">✅</div>
+                    <h3>Mensaje Enviado</h3>
+                    <p>Un abogado especialista revisará su caso y lo contactará en menos de 24 horas.</p>
+                    <button class="reset-btn" (click)="formSubmitted.set(false)">Enviar otro mensaje</button>
+                </div>
+                }
+            </div>
+            }
+
+            @if (activeTab() === 'team') {
+            <div class="mock-content">
+                <div class="team-header">
+                    <div class="header-text">
+                        <h2>Nuestro Equipo de Expertos</h2>
+                        <p>Conoce a los profesionales que harán la diferencia en tu caso</p>
+                    </div>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="/assets/team/harvey.png" alt="Harvey Specter">
+                        </div>
+                        <div class="member-info">
+                            <h3>Harvey Specter</h3>
+                            <p class="member-title">Socio Principal</p>
+                            <p class="member-specialty">Especialista en Derecho Corporativo y Financiero</p>
+                            <div class="member-details">
+                                <p>Con más de 15 años de experiencia liderando casos corporativos de alto perfil,
+                                    Harvey es reconocido por su enfoque estratégico y resultados excepcionales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="/assets/team/mike.png" alt="Mike Ross">
+                        </div>
+                        <div class="member-info">
+                            <h3>Mike Ross</h3>
+                            <p class="member-title">Socio Asociado</p>
+                            <p class="member-specialty">Especialista en Derecho Corporativo, Constitucional y Civil
+                            </p>
+                            <div class="member-details">
+                                <p>Mike combina un profundo conocimiento legal con un enfoque innovador, brindando
+                                    soluciones creativas a problemas complejos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="/assets/team/jessica.png" alt="Jessica Pearson">
+                        </div>
+                        <div class="member-info">
+                            <h3>Jessica Pearson</h3>
+                            <p class="member-title">Socia Fundadora</p>
+                            <p class="member-specialty">Especialista en Derecho Corporativo y Legal</p>
+                            <div class="member-details">
+                                <p>Jessica es la arquitecta detrás de nuestra firma. Su visión y liderazgo han
+                                    consolidado nuestra reputación como uno de los mejores bufetes del país.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+
+
+            <footer class="mock-footer">
+                <p>© 2024 {{ businessInfo?.businessName || 'Justicia & Asociados' }}. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+        }
+
+        <!-- ECOMMERCE TEMPLATE -->
+        @if (template?.categoryId === 'ecommerce') {
+        <div class="mock-browser ecommerce-theme">
+            <nav class="mock-nav">
+                <div class="promo-bar">🚚 Envío GRATIS en pedidos superiores a $100</div>
+                <div class="nav-main">
+                    <div class="mock-logo" (click)="setTab('home')">{{ businessInfo?.businessName || 'BODEGA' }}<span
+                            class="highlight">{{ businessInfo?.storeName || 'SELECTA' }}</span></div>
+                    <div class="nav-links-c">
+                        <a [class.active]="activeTab() === 'home'" (click)="setTab('home')">Vinos</a>
+                        <a [class.active]="activeTab() === 'licores'" (click)="setTab('licores')">Licores</a>
+                        <a [class.active]="activeTab() === 'ofertas'" (click)="setTab('ofertas')">Ofertas</a>
+                        <a [class.active]="activeTab() === 'club'" (click)="setTab('club')">Club</a>
+                    </div>
+                    <div class="mock-actions">
+                        <span class="icon-btn" (click)="setTab('search')">🔍</span>
+                        <span class="icon-btn" (click)="setTab('login')">👤</span>
+                        <div class="cart-badge icon-btn" (click)="setTab('cart')">
+                            🛒 <span *ngIf="cartCount() > 0" class="badge">{{ cartCount() }}</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            @if (activeTab() === 'home') {
+            <div class="mock-hero-banner">
+                <div class="hero-content">
+                    <span class="tag">NUEVA COLECCIÓN</span>
+                    <h2>Reserva Especial 2024</h2>
+                    <p>Descubra notas únicas en nuestra selección premium de viñedos exclusivos.</p>
+                    <button class="shop-btn"
+                        (click)="addToCart({name: 'Reserva Especial 2024', price: 120.00, image: '/assets/products/wine_red_1765775777593.png'})">Comprar
+                        Ahora</button>
+                </div>
+            </div>
+
+            <div class="featured-section">
+                <h3>Destacados del Mes</h3>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="/assets/products/wine_red_1765775777593.png" alt="Malbec Gran Reserva"
+                                class="product-img-real">
+                            <span class="discount-tag">-10%</span>
+                            <button class="quick-add"
+                                (click)="addToCart({name: 'Malbec Gran Reserva', price: 45.00, image: '/assets/products/wine_red_1765775777593.png'})">+
+                                Agregar</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="category">Vino Tinto</span>
+                            <h4>Malbec Gran Reserva</h4>
+                            <div class="rating">★★★★★ <span class="count">(120)</span></div>
+                            <div class="price">
+                                <span class="original">$50.00</span>
+                                <span class="current">$45.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="/assets/products/wine_white_chardonnay_premium.png" alt="Chardonnay Premium"
+                                class="product-img-real">
+                            <button class="quick-add"
+                                (click)="addToCart({name: 'Chardonnay Premium', price: 39.00, image: '/assets/products/wine_white_chardonnay_premium.png'})">+
+                                Agregar</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="category">Vino Blanco</span>
+                            <h4>Chardonnay Premium</h4>
+                            <div class="rating">★★★★☆ <span class="count">(85)</span></div>
+                            <div class="price">
+                                <span class="current">$39.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="/assets/products/wine_rose_provence_style.png" alt="Rosé Provence Style"
+                                class="product-img-real" style="transform: scaleX(1.25);">
+                            <button class="quick-add"
+                                (click)="addToCart({name: 'Rosé Provence Style', price: 42.00, image: '/assets/products/wine_rose_provence_style.png'})">+
+                                Agregar</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="category">Vino Rosado</span>
+                            <h4>Rosé Provence Style</h4>
+                            <div class="rating">★★★★★ <span class="count">(42)</span></div>
+                            <div class="price">
+                                <span class="current">$42.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="/assets/products/wine_sparkling_brut_nature.png" alt="Brut Nature"
+                                class="product-img-real">
+                            <button class="quick-add"
+                                (click)="addToCart({name: 'Brut Nature', price: 55.00, image: '/assets/products/wine_sparkling_brut_nature.png'})">+
+                                Agregar</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="category">Espumante</span>
+                            <h4>Brut Nature</h4>
+                            <div class="rating">★★★★☆ <span class="count">(20)</span></div>
+                            <div class="price">
+                                <span class="current">$55.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            }
+
+            @if (activeTab() === 'licores') {
+            <div class="category-page">
+                <h3>Licores Premium</h3>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="/assets/products/liquor_whiskey_highland_park_18.jpg" alt="Highland Park 18 Years"
+                                class="product-img-real text-center"
+                                style="height: 300px; width: auto; object-fit: contain;">
+
+                            <button class="quick-add"
+                                style="opacity: 1; left: 72%; right: auto; transform: translateY(-50%); background: #1a1a1a; color: white; border: none;"
+                                (click)="addToCart({name: 'Highland Park 18 Years', price: 85.00, image: '/assets/products/liquor_whiskey_highland_park_18.jpg'})">+
+                                Agregar</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="category">Whiskey</span>
+                            <h4>Highland Park 18 Years</h4>
+                            <div class="rating">★★★★★ <span class="count">(45)</span></div>
+                            <div class="price">
+                                <span class="current">$85.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            @if (activeTab() === 'ofertas') {
+            <div class="category-page">
+                <h3>Ofertas Especiales</h3>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="/assets/products/wine_red_1765775777593.png" alt="Malbec Gran Reserva"
+                                class="product-img-real">
+                            <span class="discount-tag">-30%</span>
+                            <button class="quick-add"
+                                (click)="addToCart({name: 'Malbec Gran Reserva', price: 35.00, image: '/assets/products/wine_red_1765775777593.png'})">+
+                                Agregar</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="category">Vino Tinto</span>
+                            <h4>Malbec Gran Reserva</h4>
+                            <div class="price">
+                                <span class="original">$50.00</span>
+                                <span class="current">$35.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            @if (activeTab() === 'club') {
+            <div class="club-page">
+                <div class="club-hero">
+                    <h2>Únete al Club Bodega Selecta</h2>
+                    <p>Acceso exclusivo a catas, envíos gratuitos y descuentos permanentes.</p>
+                </div>
+            </div>
+            }
+
+            @if (activeTab() === 'search') {
+            <div class="search-page">
+                <div class="search-container">
+                    <input type="text" placeholder="Buscar vinos, licores..." [value]="searchQuery()"
+                        (input)="searchQuery.set($any($event.target).value)">
+                    <button class="search-btn">Buscar</button>
+                </div>
+                <div class="search-results">
+                    <p>Resultados populares...</p>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <img src="/assets/products/wine_sparkling_brut_nature.png" alt="Brut Nature"
+                                    class="product-img-real">
+                                <button class="quick-add"
+                                    (click)="addToCart({name: 'Brut Nature', price: 55.00, image: '/assets/products/wine_sparkling_brut_nature.png'})">+
+                                    Agregar</button>
+                            </div>
+                            <div class="product-info">
+                                <h4>Brut Nature</h4>
+                                <div class="price">$55.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            @if (activeTab() === 'login') {
+            <div class="auth-page">
+                <h3>Iniciar Sesión</h3>
+                <form (submit)="$event.preventDefault(); login()">
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" placeholder="usuario@ejemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        @if (formSubmitted()) { Cargando... } @else { Ingresar }
+                    </button>
+                </form>
+            </div>
+            }
+
+            @if (activeTab() === 'cart') {
+            <div class="cart-page">
+                <h3>Tu Carrito ({{ cartCount() }})</h3>
+                @if (cartCount() === 0) {
+                <div class="empty-cart">
+                    <p>Tu carrito está vacío</p>
+                    <button class="continue-btn" (click)="setTab('home')">Continuar Comprando</button>
+                </div>
+                } @else {
+                <div class="cart-items">
+                    @for (item of cart(); track $index) {
+                    <div class="cart-item">
+                        <img [src]="item.image" alt="Producto">
+                        <div class="item-details">
+                            <h4>{{ item.name }}</h4>
+                            <span class="price">${{ item.price }}</span>
+                        </div>
+                        <button class="remove-btn" (click)="removeFromCart($index)">❌</button>
+                    </div>
+                    }
+                </div>
+                <div class="cart-summary">
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span class="total-amount">${{ cartTotal }}</span>
+                    </div>
+                    <button class="checkout-btn">Finalizar Compra</button>
+                </div>
+                }
+            </div>
+            }
+
+            <div class="newsletter-section">
+                <h4>Únete al Club del Vino</h4>
+                <p>Recibe ofertas exclusivas y consejos de sommelier.</p>
+                <div class="input-group">
+                    <input type="email" placeholder="Tu correo electrónico">
+                    <button>Suscribirse</button>
+                </div>
+            </div>
+        </div>
+        }
+
+        <!-- REAL ESTATE TEMPLATE -->
+        @if (template?.categoryId === 'real-estate') {
+        <div class="mock-browser realestate-theme">
+            <nav class="mock-nav">
+                <div class="mock-logo">{{ (businessInfo?.businessName || 'GOLDEN TOWN').split(' ')[0] || 'GOLDEN'
+                    }}<span class="thin">{{ (businessInfo?.businessName || 'GOLDEN TOWN').split(' ')[1] || 'TOWN'
+                        }}</span></div>
+                <div class="mock-links">
+                    <a [class.active]="activeTab() === 'home'" (click)="setTab('home')">Propiedades</a>
+                    <a [class.active]="activeTab() === 'agents'" (click)="setTab('agents')">Agentes</a>
+                    <a [class.active]="activeTab() === 'sell'" (click)="setTab('sell')">Vender</a>
+                    <a [class.active]="activeTab() === 'about'" (click)="setTab('about')">Nosotros</a>
+                    <button class="contact-agent-btn" (click)="setTab('agents')">Contactar</button>
+                </div>
+            </nav>
+
+            @if (activeTab() === 'home') {
+            <div class="hero-search">
+                <h1>Encuentre su Hogar Ideal</h1>
+                <div class="search-box">
+                    <div class="search-field">
+                        <label>Ubicación</label>
+                        <input #searchLoc type="text" placeholder="Ciudad, Zona..."
+                            (keyup.enter)="handleSearch(searchLoc.value, searchType.value, searchPrice.value)">
+                    </div>
+                    <div class="divider"></div>
+                    <div class="search-field">
+                        <label>Tipo</label>
+                        <select #searchType>
+                            <option value="Todos">Todos</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Depa">Depa</option>
+                        </select>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="search-field">
+                        <label>Precio</label>
+                        <select #searchPrice>
+                            <option>Cualquiera</option>
+                            <option>
+                                < $1M</option>
+                            <option>$1M - $3M</option>
+                            <option>> $3M</option>
+                        </select>
+                    </div>
+                    <button class="search-btn"
+                        (click)="handleSearch(searchLoc.value, searchType.value, searchPrice.value)">
+                        {{ searchLoading() ? '...' : 'Buscar' }}
+                    </button>
+                </div>
+            </div>
+
+            <div class="property-list-section">
+                <div class="section-header">
+                    <h3>Propiedades Destacadas</h3>
+                    <a class="view-all" (click)="handleSearch('', 'Todos', '')">Ver todas →</a>
+                </div>
+
+                @if (searchLoading()) {
+                <div style="text-align: center; padding: 3rem; color: #999;">Buscando propiedades...</div>
+                } @else {
+                <div class="property-grid">
+                    @for (prop of filteredProperties(); track prop.id) {
+                    <div class="property-card" (click)="viewProperty(prop.id)">
+                        <div class="card-image-wrapper">
+                            <div class="prop-img" [ngClass]="prop.imageClass"></div>
+                            <div [class]="prop.tagClass">{{ prop.tag }}</div>
+                            <button class="like-btn" [class.active]="favorites().has(prop.id)"
+                                (click)="toggleFavorite($event, prop.id)">
+                                {{ favorites().has(prop.id) ? '♥' : '♡' }}
+                            </button>
+                        </div>
+                        <div class="prop-details">
+                            <div class="price-row">
+                                <h4>${{ prop.price | number }}</h4>
+                                <span class="period">USD</span>
+                            </div>
+                            <h5>{{ prop.title }}</h5>
+                            <p class="address">📍 {{ prop.location }}</p>
+                            <div class="amenities">
+                                <span>🛏️ {{ prop.beds }} Beds</span>
+                                <span>🚿 {{ prop.baths }} Baths</span>
+                                <span>📐 {{ prop.area }}m²</span>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    @if (filteredProperties().length === 0) {
+                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">No se encontraron propiedades.
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+            }
+
+            <!-- AGENTS PAGE -->
+            @if (activeTab() === 'agents') {
+            <div style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 3rem; font-family: 'DM Sans', sans-serif;">Nuestros
+                    Agentes Expertos</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="agent-card"
+                        style="padding: 2rem; border: 1px solid #eee; text-align: center; background: #fff;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👤</div>
+                        <h4 style="margin: 0.5rem 0;">Sarah Connor</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Luxury Specialist</p>
+                        <button
+                            style="background: #111; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer;"
+                            (click)="showTeamPage()">Contactar</button>
+                    </div>
+                    <div class="agent-card"
+                        style="padding: 2rem; border: 1px solid #eee; text-align: center; background: #fff;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👤</div>
+                        <h4 style="margin: 0.5rem 0;">John Smith</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Senior Broker</p>
+                        <button
+                            style="background: #111; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer;"
+                            (click)="showTeamPage()">Contactar</button>
+                    </div>
+                    <div class="agent-card"
+                        style="padding: 2rem; border: 1px solid #eee; text-align: center; background: #fff;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👤</div>
+                        <h4 style="margin: 0.5rem 0;">Emily Blunt</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Real Estate Agent</p>
+                        <button
+                            style="background: #111; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer;"
+                            (click)="showTeamPage()">Contactar</button>
+                    </div>
+                </div>
+            </div>
+            }
+
+            <!-- SELL (VENDER) PAGE -->
+            @if (activeTab() === 'sell') {
+            <div style="padding: 4rem 2rem; max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 1rem; font-family: 'DM Sans', sans-serif;">Venda su Propiedad con Nosotros
+                </h2>
+                <p style="color: #666; margin-bottom: 2rem;">Obtenga la mejor valuación del mercado.</p>
+
+                @if (visitScheduled()) {
+                <div style="padding: 2rem; background: #f0fdf4; color: #15803d; border-radius: 8px;">
+                    ¡Solicitud enviada! Un agente le contactará pronto.
+                </div>
+                } @else {
+                <div style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Dirección
+                            de la Propiedad</label>
+                        <input type="text" placeholder="Ej: 123 Calle Principal"
+                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd;">
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Tipo</label>
+                            <select style="width: 100%; padding: 0.8rem; border: 1px solid #ddd;">
+                                <option>Casa</option>
+                                <option>Departamento</option>
+                                <option>Terreno</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Precio
+                                Estimado</label>
+                            <input type="text" placeholder="$ USD"
+                                style="width: 100%; padding: 0.8rem; border: 1px solid #ddd;">
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Contacto</label>
+                        <input type="email" placeholder="su@email.com"
+                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd;">
+                    </div>
+                    <button (click)="scheduleVisit()"
+                        style="margin-top: 1rem; background: #111; color: white; padding: 1rem; border: none; font-weight: 600; cursor: pointer;">Solicitar
+                        Valuación Gratuita</button>
+                </div>
+                }
+            </div>
+            }
+
+            <!-- ABOUT (NOSOTROS) PAGE -->
+            @if (activeTab() === 'about') {
+            <div style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 2rem; font-family: 'DM Sans', sans-serif;">Sobre GoldenTown</h2>
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 2rem;">
+                    Somos la agencia inmobiliaria líder en propiedades de lujo. Con más de 20 años de experiencia
+                    conectando a compradores exigentes con las residencias más exclusivas del mundo.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 4rem; margin-top: 3rem;">
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.5rem;">$1B+</h3>
+                        <span style="color: #999;">En Ventas</span>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.5rem;">500+</h3>
+                        <span style="color: #999;">Propiedades</span>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.5rem;">50+</h3>
+                        <span style="color: #999;">Agentes</span>
+                    </div>
+                </div>
+            </div>
+            }
+
+            @if (activeTab() === 'detail') {
+            <div class="property-detail-view">
+                <button class="back-link" (click)="setTab('home')">← Volver al listado</button>
+
+                <div class="detail-container">
+                    <div class="gallery-hero" [class.villa]="activePropertyId() === 1"
+                        [class.penthouse]="activePropertyId() === 2"
+                        [class.house]="activePropertyId() !== 1 && activePropertyId() !== 2">
+                        <button class="gallery-btn">Ver 15 Fotos</button>
+                    </div>
+
+                    <div class="detail-cols">
+                        <div class="detail-main">
+                            <div class="header-row">
+                                <div>
+                                    <h2>{{ activePropertyId() === 1 ? 'Villa Moderna' : (activePropertyId() === 2 ?
+                                        'Penthouse Ejecutivo' : 'Residencia Familiar') }}</h2>
+                                    <p class="location">📍 Ubicación Premium, Zona Exclusiva</p>
+                                </div>
+                                <div class="price-block">
+                                    <h3>{{ activePropertyId() === 1 ? '$4.5M' : (activePropertyId() === 2 ? '$3.2M'
+                                        :
+                                        '$1.85M') }}</h3>
+                                </div>
+                            </div>
+
+                            <div class="feature-strip">
+                                <div class="f-item"><strong>Tipo:</strong> Residencial</div>
+                                <div class="f-item"><strong>Año:</strong> 2023</div>
+                                <div class="f-item"><strong>Estado:</strong> Excelente</div>
+                            </div>
+
+                            <div class="description-block">
+                                <h3>Descripción</h3>
+                                <p>Esta propiedad redefine el lujo moderno. Con acabados de mármol importado,
+                                    sistema de
+                                    domótica integral y vistas panorámicas inigualables. Diseñada por arquitectos
+                                    galardonados para ofrecer el máximo confort y privacidad.</p>
+                                <p>Cuenta con amplias áreas sociales, piscina infinita climatizada, gimnasio privado
+                                    y
+                                    cava de vientos subterránea.</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-sidebar">
+                            <div class="agent-card">
+                                <div class="agent-avatar">👤</div>
+                                <div class="agent-info">
+                                    <h4>Sarah Connor</h4>
+                                    <p>Agente Senior</p>
+                                </div>
+                                <button class="contact-btn primary" (click)="submitForm()">
+                                    {{ formSubmitted() ? '✅ Mensaje Enviado' : 'Contactar Agente' }}
+                                </button>
+                                <button class="contact-btn secondary" (click)="scheduleVisit()">
+                                    {{ visitScheduled() ? '✅ Agendado' : 'Agendar Visita' }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+
+        <!-- PHARMACY TEMPLATE -->
+        @if (template?.categoryId === 'health') {
+        <div class="mock-browser health-theme">
+            <nav class="mock-nav">
+                <div class="nav-top">
+                    <div class="mock-logo" (click)="setHealthTab('home')">💊 {{ businessInfo?.businessName || 'Vitality'
+                        }}<span class="brand-color">{{ businessInfo?.pharmacyName || 'Farma' }}</span></div>
+                    <div class="search-bar">
+                        <input type="search" placeholder="Busca medicamentos, marcas, síntomas..."
+                            [ngModel]="healthSearchQuery()" (ngModelChange)="healthSearchQuery.set($event)"
+                            (keydown.enter)="searchHealthProducts()">
+                        <button (click)="searchHealthProducts()">🔍</button>
+                    </div>
+                    <div class="nav-icons">
+                        <div class="icon-item" (click)="setHealthTab('account')">
+                            <span class="i">👤</span>
+                            <span class="t">Cuenta</span>
+                        </div>
+                        <div class="icon-item cart" (click)="setHealthTab('cart')">
+                            <span class="i">🛒</span>
+                            <span class="badge">{{ healthCart().length }}</span>
+                            <span class="t">Carrito</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bottom">
+                    <div class="cat-link" [class.active]="healthTab() === 'home'" (click)="setHealthTab('home')">Inicio
+                    </div>
+                    <div class="cat-link" [class.active]="healthActiveCategory() === 'Medicamentos'"
+                        (click)="setHealthTab('category', 'Medicamentos')">Medicamentos</div>
+                    <div class="cat-link" [class.active]="healthActiveCategory() === 'Cuidado Personal'"
+                        (click)="setHealthTab('category', 'Cuidado Personal')">Cuidado Personal</div>
+                    <div class="cat-link" [class.active]="healthActiveCategory() === 'Vitaminas'"
+                        (click)="setHealthTab('category', 'Vitaminas')">Vitaminas</div>
+                    <div class="cat-link" [class.active]="healthActiveCategory() === 'Bebés'"
+                        (click)="setHealthTab('category', 'Bebés')">Bebés</div>
+                </div>
+            </nav>
+
+            <div class="health-container">
+                <div class="trust-banner">
+                    <div class="trust-item">🚚 Envío Rápido</div>
+                    <div class="trust-item">🔒 Pagos Seguros</div>
+                    <div class="trust-item">👨‍⚕️ Atencion Farmacéutica</div>
+                </div>
+
+                <!-- HOME VIEW -->
+                @if (healthTab() === 'home') {
+                <div class="health-hero">
+                    <div class="hero-text">
+                        <span class="badge-new">NUEVO SERVICIO</span>
+                        <h3>Tu salud digital en casa</h3>
+                        <p>Envío gratis en tus primeros 3 pedidos superiores a $50.</p>
+                        <button class="cta-btn" (click)="setHealthTab('category', 'Medicamentos')">Ver Ofertas</button>
+                    </div>
+                    <div class="hero-decoration">🩺</div>
+                </div>
+
+                <div class="category-pills">
+                    <div class="pill active">Todo</div>
+                    <div class="pill">Dolor y Fiebre</div>
+                    <div class="pill">Digestión</div>
+                    <div class="pill">Gripe y Resfrío</div>
+                    <div class="pill">Primeros Auxilios</div>
+                </div>
+
+                <div class="health-grid">
+                    @for (prod of healthProducts; track prod.id) {
+                    <div class="health-card" (click)="viewHealthProduct(prod)">
+                        <div class="card-img">
+                            @if (prod.imageType === 'img') {
+                            <img [src]="prod.imageSrc" [alt]="prod.name"
+                                style="width: 100%; height: 100%; object-fit: contain;">
+                            } @else {
+                            <div [class]="prod.bgClass">{{ prod.image }}</div>
+                            }
+                            @if (prod.offer) { <span class="offer-tag">{{ prod.offer }}</span> }
+                        </div>
+                        <div class="card-body">
+                            <span class="brand">{{ prod.brand }}</span>
+                            <h5>{{ prod.name }}</h5>
+                            <p class="desc">{{ prod.desc }}</p>
+                            <div class="price-row">
+                                <span class="price">${{ prod.price }}</span>
+                                <button class="add-btn"
+                                    (click)="$event.stopPropagation(); addToHealthCart(prod)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+                }
+
+                <!-- CATEGORY VIEW -->
+                @if (healthTab() === 'category') {
+                <div class="category-view">
+                    <div class="cat-header">
+                        <h3>{{ healthActiveCategory() }}</h3>
+                        <p>Explora nuestra selección de {{ healthActiveCategory() }}</p>
+                    </div>
+                    <div class="health-grid">
+                        @for (prod of healthProducts; track prod.id) {
+                        @if (prod.category === healthActiveCategory() || healthActiveCategory() === 'Todo') {
+                        <div class="health-card" (click)="viewHealthProduct(prod)">
+                            <div class="card-img">
+                                @if (prod.imageType === 'img') {
+                                <img [src]="prod.imageSrc" [alt]="prod.name"
+                                    style="width: 100%; height: 100%; object-fit: contain;">
+                                } @else {
+                                <div [class]="prod.bgClass">{{ prod.image }}</div>
+                                }
+                            </div>
+                            <div class="card-body">
+                                <span class="brand">{{ prod.brand }}</span>
+                                <h5>{{ prod.name }}</h5>
+                                <p class="desc">{{ prod.desc }}</p>
+                                <div class="price-row">
+                                    <span class="price">${{ prod.price }}</span>
+                                    <button class="add-btn"
+                                        (click)="$event.stopPropagation(); addToHealthCart(prod)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                        }
+                    </div>
+                </div>
+                }
+
+                <!-- SEARCH RESULTS VIEW -->
+                @if (healthTab() === 'search') {
+                <div class="search-results-view">
+                    <div class="cat-header">
+                        <h3>Resultados de búsqueda</h3>
+                        <p>Resultados para "{{ healthSearchQuery() }}"</p>
+                    </div>
+                    @if (healthSearchResults().length === 0) {
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <h4>No hay coincidencias</h4>
+                        <p>No encontramos productos que coincidan con "{{ healthSearchQuery() }}"</p>
+                        <button class="back-home-btn" (click)="setHealthTab('home')">Volver al inicio</button>
+                    </div>
+                    } @else {
+                    <div class="health-grid">
+                        @for (prod of healthSearchResults(); track prod.id) {
+                        <div class="health-card" (click)="viewHealthProduct(prod)">
+                            <div class="card-img">
+                                @if (prod.imageType === 'img') {
+                                <img [src]="prod.imageSrc" [alt]="prod.name"
+                                    style="width: 100%; height: 100%; object-fit: contain;">
+                                } @else {
+                                <div [class]="prod.bgClass">{{ prod.image }}</div>
+                                }
+                            </div>
+                            <div class="card-body">
+                                <span class="brand">{{ prod.brand }}</span>
+                                <h5>{{ prod.name }}</h5>
+                                <p class="desc">{{ prod.desc }}</p>
+                                <div class="price-row">
+                                    <span class="price">${{ prod.price }}</span>
+                                    <button class="add-btn"
+                                        (click)="$event.stopPropagation(); addToHealthCart(prod)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                    }
+                </div>
+                }
+
+                <!-- PRODUCT DETAIL VIEW -->
+                @if (healthTab() === 'product') {
+                <div class="product-detail-view" style="padding: 2rem; background: white; border-radius: 8px;">
+                    <button (click)="setHealthTab('home')"
+                        style="border: none; background: none; color: #666; cursor: pointer; margin-bottom: 1rem;">←
+                        Volver</button>
+                    <div class="detail-flex" style="display: flex; gap: 2rem;">
+                        <div class="detail-img"
+                            style="width: 300px; height: 300px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; font-size: 5rem; border-radius: 12px; overflow: hidden;">
+                            @if (healthSelectedProduct()?.imageType === 'img') {
+                            <img [src]="healthSelectedProduct()?.imageSrc" [alt]="healthSelectedProduct()?.name"
+                                style="width: 100%; height: 100%; object-fit: contain;">
+                            } @else {
+                            {{ healthSelectedProduct()?.image }}
+                            }
+                        </div>
+                        <div class="detail-info" style="flex: 1;">
+                            <span style="color: #0d9488; font-weight: 600; font-size: 0.9rem;">{{
+                                healthSelectedProduct()?.brand }}</span>
+                            <h2 style="font-size: 2rem; margin: 0.5rem 0;">{{ healthSelectedProduct()?.name }}</h2>
+                            <p style="color: #666; margin-bottom: 1.5rem;">{{ healthSelectedProduct()?.desc }}</p>
+                            <div class="price-block" style="margin-bottom: 2rem;">
+                                <span style="font-size: 2rem; font-weight: 700; color: #0f172a;">${{
+                                    healthSelectedProduct()?.price }}</span>
+                            </div>
+                            <button
+                                style="background: #0d9488; color: white; border: none; padding: 1rem 3rem; border-radius: 8px; font-weight: 600; font-size: 1.1rem; cursor: pointer;"
+                                (click)="addToHealthCart(healthSelectedProduct())">
+                                Agregar al Carrito
+                            </button>
+                            <div class="info-tabs"
+                                style="margin-top: 3rem; border-top: 1px solid #eee; padding-top: 2rem;">
+                                <h4 style="margin-bottom: 1rem;">Detalles del Producto</h4>
+                                <p style="color: #666; line-height: 1.6;">Este producto ha sido verificado por nuestros
+                                    farmacéuticos. Lea siempre las indicaciones del empaque. En caso de duda, consulte a
+                                    su
+                                    médico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+
+                <!-- CART VIEW -->
+                @if (healthTab() === 'cart') {
+                <div class="cart-view" style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 2rem;">Tu Carrito de Salud ({{ healthCart().length }})</h2>
+                    @if (healthCart().length === 0) {
+                    <div style="text-align: center; padding: 4rem; background: white; border-radius: 8px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛒</div>
+                        <p style="color: #666; margin-bottom: 2rem;">Tu carrito está vacío</p>
+                        <button (click)="setHealthTab('home')"
+                            style="background: #0d9488; color: white; border: none; padding: 0.8rem 2rem; border-radius: 6px; cursor: pointer;">Volver
+                            a la tienda</button>
+                    </div>
+                    } @else {
+                    <div class="cart-items"
+                        style="background: white; border-radius: 8px; overflow: hidden; margin-bottom: 2rem;">
+                        @for (item of healthCart(); track $index) {
+                        <div
+                            style="padding: 1.5rem; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 1.5rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: #f8fafc; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border-radius: 8px; overflow: hidden;">
+                                @if (item.imageType === 'img') {
+                                <img [src]="item.imageSrc" [alt]="item.name"
+                                    style="width: 100%; height: 100%; object-fit: contain;">
+                                } @else {
+                                {{ item.image }}
+                                }
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin: 0 0 0.25rem;">{{ item.name }}</h4>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">{{ item.brand }}</p>
+                            </div>
+                            <div style="font-weight: 700;">${{ item.price }}</div>
+                            <button (click)="removeFromHealthCart($index)"
+                                style="border: none; background: none; color: #ef4444; cursor: pointer; padding: 0.5rem;">✕</button>
+                        </div>
+                        }
+                        <div
+                            style="padding: 1.5rem; background: #f8fafc; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">Total</span>
+                            <span style="font-size: 1.5rem; font-weight: 800; color: #0d9488;">${{
+                                healthCartTotal.toFixed(2) }}</span>
+                        </div>
+                    </div>
+                    <button
+                        style="width: 100%; background: #0f172a; color: white; border: none; padding: 1.2rem; border-radius: 8px; font-weight: 600; font-size: 1.1rem; cursor: pointer;">
+                        Proceder al Pago
+                    </button>
+                    }
+                </div>
+                }
+
+                <!-- ACCOUNT VIEW -->
+                @if (healthTab() === 'account') {
+                <div class="auth-view"
+                    style="max-width: 400px; margin: 4rem auto; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: #0f172a;">Acceso Pacientes</h2>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #334155;">DNI /
+                            Email</label>
+                        <input type="text" placeholder="Ingresa tu documento"
+                            style="width: 100%; padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px;">
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #334155;">Contraseña</label>
+                        <input type="password" placeholder="••••••••"
+                            style="width: 100%; padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px;">
+                    </div>
+                    <button
+                        style="width: 100%; background: #0d9488; color: white; border: none; padding: 1rem; border-radius: 6px; font-weight: 600; cursor: pointer;"
+                        (click)="login()">Inciar Sesión</button>
+                    <p style="text-align: center; margin-top: 1.5rem; color: #666;">¿No tienes cuenta? <a
+                            style="color: #0d9488; font-weight: 600; cursor: pointer;">Regístrate</a></p>
+                </div>
+                }
+            </div>
+
+            <div class="chat-widget" (click)="toggleHealthChat()">
+                <div class="status-dot"></div>
+                <div class="chat-text">
+                    <span class="title">¿Necesitas ayuda?</span>
+                    <span class="subtitle">Habla con un farmacéutico</span>
+                </div>
+                <div class="chat-icon">💬</div>
+            </div>
+
+            <!-- CHAT MODAL -->
+            @if (healthChatOpen()) {
+            <div class="health-chat-modal">
+                <div class="chat-header">
+                    <div class="chat-header-info">
+                        <div class="pharmacist-avatar">👨‍⚕️</div>
+                        <div>
+                            <h4>Dr. Carlos Cabrera</h4>
+                            <span class="status-online">● En línea</span>
+                        </div>
+                    </div>
+                    <button class="close-chat-btn" (click)="closeHealthChat()">✕</button>
+                </div>
+                <div class="chat-messages" #chatContainer>
+                    @for (msg of chatMessages(); track $index) {
+                    <div class="message" [class.received]="msg.sender === 'pharmacist'"
+                        [class.sent]="msg.sender === 'user'">
+                        <div class="message-bubble">
+                            <p>{{ msg.text }}</p>
+                            <span class="message-time">{{ msg.time }}</span>
+                        </div>
+                    </div>
+                    }
+                    @if (isPharmacistTyping()) {
+                    <div class="message received">
+                        <div class="message-bubble typing">
+                            <div class="typing-indicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" placeholder="Escribe tu consulta aquí..." class="chat-input"
+                        [value]="chatInput()" (input)="updateChatInput($any($event.target).value)"
+                        (keypress)="handleChatKeyPress($event)">
+                    <button class="send-btn" (click)="sendChatMessage()">📤</button>
+                </div>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>

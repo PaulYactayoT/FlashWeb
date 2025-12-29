@@ -1,0 +1,163 @@
+﻿[33mÔØ»[39m Building...
+[32mÔ£ö[39m Building...
+Application bundle generation failed. [4.797 seconds] - 2025-12-19T18:03:11.150Z
+
+node.exe : 
+[1m[31m[31mX [41;3
+1m[[41;97mERROR[41;3
+1m][0m [1mTS2307: 
+Cannot find module 
+'../template.service' 
+or its corresponding 
+type 
+declarations.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+En C:\Users\inten\AppD
+ata\Roaming\npm\ng.ps1
+: 24 Carácter: 5
++     & "node$exe"  "$
+basedir/node_modules/@
+angular/cli/bin/ng.js"
+ $arg ...
++     ~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: ([1m[31m   
+ [31mX...r-compile    
+r][0m:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+
+    src/app/templates/
+template-builder/templ
+ate-builder.component.
+ts:3:32:
+[37m      3 Ôöé 
+import { 
+TemplateService } 
+from [32m'../template
+.service'[37m;
+        ÔòÁ           
+                      
+[32m~~~~~~~~~~~~~~~~~
+~~~~[0m
+
+
+[31mX [41;31m[[41;9
+7mERROR[41;31m][0m 
+[1mTS2571: Object is 
+of type 
+'unknown'.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/templates/
+template-builder/templ
+ate-builder.component.
+ts:46:22:
+[37m      46 Ôöé     
+  this.template = [32
+mthis.templateService
+[37m.getTemplateById(t
+emplat...
+         ÔòÁ          
+             [32m~~~~
+~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;9
+7mERROR[41;31m][0m 
+[1mTS2307: Cannot 
+find module 
+'../template.service' 
+or its corresponding 
+type 
+declarations.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/templates/
+template-selector/temp
+late-selector.componen
+t.ts:2:32:
+[37m      2 Ôöé 
+import { 
+TemplateService } 
+from [32m'../template
+.service'[37m;
+        ÔòÁ           
+                      
+[32m~~~~~~~~~~~~~~~~~
+~~~~[0m
+
+
+[31mX [41;31m[[41;9
+7mERROR[41;31m][0m 
+[1mTS2571: Object is 
+of type 
+'unknown'.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/templates/
+template-selector/temp
+late-selector.componen
+t.ts:23:21:
+[37m      23 Ôöé     
+this.templates = [32m
+this.templateService[
+37m.getAllTemplates();
+         ÔòÁ          
+            [32m~~~~~
+~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;9
+7mERROR[41;31m][0m 
+[1mCould not resolve 
+"../template.service"
+[0m
+
+    src/app/templates/
+template-builder/templ
+ate-builder.component.
+ts:3:32:
+[37m      3 Ôöé 
+import { 
+TemplateService } 
+from [32m'../template
+.service'[37m;
+        ÔòÁ           
+                      
+[32m~~~~~~~~~~~~~~~~~
+~~~~[0m
+
+
+[31mX [41;31m[[41;9
+7mERROR[41;31m][0m 
+[1mCould not resolve 
+"../template.service"
+[0m
+
+    src/app/templates/
+template-selector/temp
+late-selector.componen
+t.ts:2:32:
+[37m      2 Ôöé 
+import { 
+TemplateService } 
+from [32m'../template
+.service'[37m;
+        ÔòÁ           
+                      
+[32m~~~~~~~~~~~~~~~~~
+~~~~[0m
+
+[39m[22m

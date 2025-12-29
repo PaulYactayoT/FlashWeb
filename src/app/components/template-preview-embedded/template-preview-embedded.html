@@ -1,0 +1,256 @@
+<div class="preview-embedded-wrapper">
+    <!-- LEGAL TEMPLATE -->
+    <div *ngIf="templateId === 'corporate-1'" class="legal-theme">
+        <nav class="mock-nav">
+            <div class="mock-container">
+                <div class="mock-logo">
+                    ⚖️ <span class="logo-text"><span class="firm-name">{{ businessInfo?.businessName || 'JUSTICIA &
+                            ASOCIADOS' }}</span></span>
+                </div>
+                <div class="mock-links">
+                    <a>Servicios</a>
+                    <a>Equipo</a>
+                    <a>Contacto</a>
+                    <button class="btn-consult">Consulta</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mock-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>JUSTICIA Y EXCELENCIA</h1>
+                <p class="hero-subtitle">Soluciones Legales de Primer Nivel</p>
+                <button class="btn-contact">Contáctenos</button>
+            </div>
+        </div>
+
+        <div class="practice-areas">
+            <div class="area-card">
+                <div class="icon-circle">📋</div>
+                <h3>DERECHO CORPORATIVO</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod rocid ent.</p>
+            </div>
+            <div class="area-card">
+                <div class="icon-circle">⚖️</div>
+                <h3>DERECHO CIVIL</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed din elusmod tempor incididunt ut.</p>
+            </div>
+            <div class="area-card">
+                <div class="icon-circle">🔨</div>
+                <h3>DERECHO PENAL</h3>
+                <p>Deserip brum psum dolor sit amet, consectetur adipisicing elit, sed do elausmod concomessum.</p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>CONTACTO</h2>
+            <div class="contact-info-grid">
+                <div class="info-item">
+                    <strong>📍 Dirección</strong>
+                    <p>{{ businessInfo?.address || 'Av. Principal 123, Oficina 405' }}</p>
+                </div>
+                <div class="info-item">
+                    <strong>📞 Teléfono</strong>
+                    <p>{{ businessInfo?.phone || '(01) 555-0123' }}</p>
+                </div>
+                <div class="info-item">
+                    <strong>✉️ Email</strong>
+                    <p>{{ businessInfo?.email || 'contacto@justicia.com' }}</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mock-footer">
+            <p>© 2024 {{ businessInfo?.businessName || 'Justicia & Asociados' }}. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- ECOMMERCE TEMPLATE (Bodega Industrial) -->
+    <div *ngIf="templateId === 'ecommerce-1'" class="ecommerce-theme">
+        <nav class="nav-ecommerce">
+            <div class="nav-container">
+                <div class="logo-ecommerce">
+                    <span class="bodega">BODEGA</span><br>
+                    <span class="industrial">INDUSTRIAL</span>
+                </div>
+                <div class="nav-links-e">
+                    <button class="nav-btn active">VINOS</button>
+                    <button class="nav-btn">LICORES</button>
+                    <button class="nav-btn">GOURMET</button>
+                </div>
+                <div class="cart-icon">🛒 <span class="cart-count">2</span></div>
+            </div>
+        </nav>
+
+        <div class="hero-ecommerce">
+            <div class="hero-overlay-e"></div>
+            <div class="hero-content-e">
+                <h1>OFERTAS<br>ESPECIALES</h1>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card-e">
+                <img src="/assets/products/wine1.jpg" alt="Vino" class="product-img-e">
+                <h4>Reserva Malbec</h4>
+                <p class="price-e">$24.99</p>
+                <button class="btn-add-cart">Añadir al Carrito</button>
+            </div>
+            <div class="product-card-e">
+                <img src="/assets/products/cheese.jpg" alt="Queso" class="product-img-e">
+                <h4>Queso Manchego Curado</h4>
+                <p class="price-e">$18.50</p>
+                <button class="btn-add-cart">Añadir al Carrito</button>
+            </div>
+            <div class="product-card-e">
+                <img src="/assets/products/olive-oil.jpg" alt="Aceite" class="product-img-e">
+                <h4>Aceite de Oliva Virgen Extra</h4>
+                <p class="price-e">$15.99</p>
+                <button class="btn-add-cart">Añadir al Carrito</button>
+            </div>
+            <div class="product-card-e">
+                <img src="/assets/products/jamon.jpg" alt="Jamón" class="product-img-e">
+                <h4>Jamón Ibérico</h4>
+                <p class="price-e">$45.00</p>
+                <button class="btn-add-cart">Añadir al Carrito</button>
+            </div>
+        </div>
+
+        <footer class="footer-ecommerce">
+            <div class="footer-section">
+                <strong>CONTACTO</strong>
+                <p>{{ businessInfo?.phone || '+47 (15) 736 7230' }}</p>
+                <p>{{ businessInfo?.email || 'info@bodegaindustrial.com' }}</p>
+            </div>
+            <div class="footer-section">
+                <strong>MERRHA</strong>
+                <p>{{ businessInfo?.email || 'itemdeevodnimas85@gunmail.com' }}</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- PHARMACY TEMPLATE (FarmaClick) -->
+    <div *ngIf="templateId === 'health-1'" class="pharmacy-theme">
+        <nav class="nav-pharmacy">
+            <div class="nav-container-p">
+                <div class="logo-pharmacy">
+                    🏥 <span class="farma-name">FarmaClick</span>
+                </div>
+                <input type="search" placeholder="Busca en productos" class="search-pharmacy">
+                <div class="nav-actions-p">
+                    <span>📍 Córten relacione</span>
+                    <span>👤 Expediente Administratlon</span>
+                    <span class="cart-p">🛒 <span class="badge-p">0</span></span>
+                </div>
+            </div>
+            <div class="nav-categories">
+                <a>🏠 Homeaspa</a>
+                <a>💊 Ensauntos</a>
+                <a>💉 Medicines</a>
+                <a>📋 Preonrtzcs</a>
+                <a>📝 Resentes</a>
+                <a>🧪 Devectsmina</a>
+            </div>
+        </nav>
+
+        <div class="hero-pharmacy">
+            <div class="hero-left-p">
+                <h1>FarmaClick<br>en apresancia</h1>
+                <p>Su proceso a reushe ontelmedics situs medicemenre ocolas o cinformeste</p>
+                <button class="btn-visit">Viseñt en temporajo</button>
+            </div>
+            <div class="hero-right-p">
+                <img src="/assets/pharmacist.jpg" alt="Farmacéutico" class="pharmacist-img">
+            </div>
+        </div>
+
+        <div class="categories-pharmacy">
+            <div class="category-card-p">
+                <h3>Medicamentos</h3>
+                <p>Categories</p>
+            </div>
+            <div class="category-card-p">
+                <h3>Vitaminas</h3>
+                <p>Categories</p>
+            </div>
+            <div class="category-card-p">
+                <h3>Cuidado Personal</h3>
+                <p>Categories</p>
+            </div>
+        </div>
+
+        <div class="products-pharmacy">
+            <div class="product-p" *ngFor="let i of [1,2,3,4]">
+                <img src="/assets/medicine{{i}}.jpg" alt="Medicina" class="product-img-p">
+                <div class="badge-envio">ENVÍO RÁPIDO</div>
+            </div>
+        </div>
+
+        <div class="badges-section">
+            <div class="badge-item">✅ Certificado</div>
+            <div class="badge-item">🔒 Confidencial</div>
+            <div class="badge-item">✅ Garantizado</div>
+        </div>
+
+        <footer class="footer-pharmacy">
+            <p>© 2024 {{ businessInfo?.businessName || 'FarmaClick' }}. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- REAL ESTATE TEMPLATE (Luxe Haven) -->
+    <div *ngIf="templateId === 'real-estate-1'" class="realestate-theme">
+        <nav class="nav-realestate">
+            <div class="logo-realestate">
+                <span class="luxe">LUXE</span> <span class="haven">HAVEN</span><br>
+                <span class="realty">REALTY</span>
+            </div>
+            <div class="nav-links-r">
+                <a>Home</a>
+                <a>Propiedades ▾</a>
+                <a>Prozadeos</a>
+                <a>Elegio</a>
+                <a>Contacto</a>
+            </div>
+        </nav>
+
+        <div class="hero-realestate">
+            <div class="search-box-hero">
+                <button class="search-item">📍 Ubicación</button>
+                <button class="search-item">Precio ▾</button>
+                <button class="search-item">Tipo ▾</button>
+                <button class="btn-search-hero">BUSCAR</button>
+            </div>
+        </div>
+
+        <div class="properties-section">
+            <h2>PROPIEDADES DESTACADAS</h2>
+            <div class="properties-grid">
+                <div class="property-card-r"
+                    *ngFor="let price of ['$2.5M', '$4.1M', '$1.8M', '$1.6M', '$4.1M', '$1.8M']">
+                    <div class="property-img-r" [style.background-image]="'url(/assets/house.jpg)'">
+                        <span class="property-price">{{ price }}</span>
+                        <button class="btn-details">VER DETALLES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="agents-section">
+            <h2>NUESTROS AGENTES</h2>
+            <div class="agents-grid">
+                <div class="agent-card"
+                    *ngFor="let agent of ['Mare Gavenda', 'JamauloSantha', 'Armolx Vactsnn', 'Gabrlsn Stassenen']">
+                    <img src="/assets/agent.jpg" alt="Agente" class="agent-img">
+                    <h4>{{ agent }}</h4>
+                    <p>Contacto</p>
+                    <p class="agent-email">info@luxehaven.com</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer-realestate">
+            <p>© 2024 {{ businessInfo?.businessName || 'Luxe Haven Realty' }}. All rights reserved.</p>
+        </footer>
+    </div>
+</div>

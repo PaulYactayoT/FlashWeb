@@ -1,0 +1,60 @@
+<div class="chatbot-container">
+
+    @if (isOpen()) {
+    <div class="chatbot-window">
+        <div class="chat-header">
+            <div class="header-info">
+                <img src="assets/gideon.png" alt="Gideon" class="avatar-img">
+                <div>
+                    <h3 class="title">Gideon</h3>
+                    <span class="status">En línea</span>
+                </div>
+            </div>
+            <button class="close-btn" (click)="toggleChat()">×</button>
+        </div>
+
+        <div class="chat-messages" #scrollContainer>
+            @for (msg of messages(); track msg.timestamp) {
+            <div class="message" [class.user]="msg.sender === 'user'" [class.ai]="msg.sender === 'ai'">
+                {{ msg.text }}
+                <span class="time">{{ msg.timestamp | date:'shortTime' }}</span>
+            </div>
+            }
+
+            @if (isTyping()) {
+            <div class="typing-indicator">Escribiendo...</div>
+            }
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" placeholder="Escribe tu mensaje..." [(ngModel)]="currentMessage"
+                (keyup.enter)="sendMessage()" [disabled]="isTyping()">
+            <button (click)="sendMessage()" [disabled]="!currentMessage.trim() || isTyping()">
+                ➤
+            </button>
+        </div>
+    </div>
+    }
+
+    <div class="controls-group">
+        <a href="https://wa.me/51946067050?text=Hola,%20me%20gustaría%20cotizar%20un%20proyecto%20web" target="_blank"
+            class="whatsapp-toggle" aria-label="Contactar por WhatsApp">
+            <img src="assets/whatsapp-icon.png" alt="WhatsApp" class="wa-icon-img">
+        </a>
+
+        <button class="chatbot-toggle" (click)="toggleChat()">
+            @if (!isOpen()) {
+            <video class="toggle-video" autoplay [muted]="true" loop playsinline preload="auto"
+                poster="assets/gideon.png">
+                <source src="/assets/templates/original.mp4" type="video/mp4">
+            </video>
+            } @else {
+            <!-- Close/Down Icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+            }
+        </button>
+    </div>
+
+</div>

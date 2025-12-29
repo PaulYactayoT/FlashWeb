@@ -1,0 +1,29 @@
+<section id="proceso" class="process section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">¿Cómo <span class="gradient-text">Trabajamos</span>?</h2>
+            <p class="section-subtitle">
+                Un proceso optimizado para entregar resultados excepcionales en tiempo récord
+            </p>
+        </div>
+
+        <div class="process-grid">
+            <div *ngFor="let step of steps; let i = index" class="process-step" [style.--index]="i">
+                <div class="step-number-wrapper">
+                    <span class="step-number">{{ step.id }}</span>
+                    <div class="step-line" *ngIf="i < steps.length - 1"></div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <span class="step-icon">{{ step.icon }}</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">{{ step.title }}</h3>
+                        <p class="step-description">{{ step.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

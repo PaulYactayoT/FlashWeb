@@ -1,0 +1,50 @@
+<div class="template-selector-container">
+  <header class="header">
+    <h1>Creador de Páginas Web para Negocios</h1>
+    <p>Selecciona una plantilla para comenzar a crear tu página web profesional</p>
+  </header>
+
+  <div class="controls">
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar plantillas..." class="search-input">
+      <button class="search-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="category-filter">
+      <select [(ngModel)]="selectedCategory" class="category-select">
+        <option *ngFor="let category of getCategories()" [value]="category">
+          {{ category === 'all' ? 'Todas las categorías' : category }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="templates-grid">
+    <div *ngFor="let template of filterTemplates()" class="template-card" (click)="selectTemplate(template.id)">
+      <div class="template-preview" [style.background-color]="template.colorScheme.primary">
+        <iframe *ngIf="template.previewImage.endsWith('.html')" [src]="template.previewImage" class="preview-iframe"
+          frameborder="0"></iframe>
+        <img *ngIf="!template.previewImage.endsWith('.html')" [src]="template.previewImage"
+          [alt]="template.name + ' preview'" class="preview-image" onerror="this.src='assets/default-preview.jpg'">
+      </div>
+      <div class="template-info">
+        <h3>{{ template.name }}</h3>
+        <p class="category-badge" [style.background-color]="template.colorScheme.secondary">{{ template.category }}</p>
+        <p class="description">{{ template.description }}</p>
+        <div class="features">
+          <span *ngFor="let feature of template.features.slice(0, 3)" class="feature-badge">
+            {{ feature }}
+          </span>
+          <span *ngIf="template.features.length > 3" class="feature-badge">+{{ template.features.length - 3 }}
+            más</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
