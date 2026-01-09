@@ -29,6 +29,8 @@
     // Red/Gold glow
     filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.6));
     animation: lightningStrike 1.2s ease-in-out;
+    will-change: transform, opacity, filter;
+    transform: translateZ(0);
 }
 
 // Removed .bolt-path styles as we are using an image now
@@ -115,6 +117,8 @@
     position: absolute;
     bottom: 20%;
     animation: fadeInUp 1s ease-in-out 0.5s both;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .logo-text {

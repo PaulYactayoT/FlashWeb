@@ -28,7 +28,7 @@
         &::before {
             opacity: 1;
             background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
         }
     }
 }
@@ -202,7 +202,7 @@
         width: 280px;
         height: 100vh;
         background: rgba(10, 10, 15, 0.98);
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(10px);
         border-left: 1px solid var(--dark-border);
         flex-direction: column;
         justify-content: flex-start;
@@ -211,6 +211,8 @@
         gap: 1.5rem;
         transition: right var(--transition-slow);
         overflow-y: auto;
+        will-change: right;
+        transform: translateZ(0);
 
         &.active {
             right: 0;

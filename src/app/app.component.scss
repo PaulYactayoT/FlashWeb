@@ -8,6 +8,9 @@
     z-index: -2;
     object-fit: fill;
     /* Forces the entire video to be visible by stretching if needed */
+    pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
 
     @media (max-width: 768px) {
         object-fit: cover;
