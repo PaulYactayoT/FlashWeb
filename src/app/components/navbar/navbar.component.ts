@@ -2,6 +2,8 @@ import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LogoLightningComponent } from '../logo-lightning/logo-lightning.component';
+import { ModalService } from '../../services/modal.service';
+import { inject } from '@angular/core';
 
 @Component({
     selector: 'app-navbar',
@@ -10,6 +12,7 @@ import { LogoLightningComponent } from '../logo-lightning/logo-lightning.compone
     styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+    private modalService = inject(ModalService);
     protected isScrolled = signal(false);
     protected isMenuOpen = signal(false);
 
@@ -24,5 +27,6 @@ export class NavbarComponent {
 
     closeMenu() {
         this.isMenuOpen.set(false);
+        this.modalService.closeModal();
     }
 }

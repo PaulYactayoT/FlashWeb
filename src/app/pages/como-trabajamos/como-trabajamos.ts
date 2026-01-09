@@ -28,31 +28,32 @@ import { FooterComponent } from '../../components/footer/footer.component';
   `,
   styles: [`
     .como-trabajamos-page {
-      padding-top: 100px;
+      padding-top: 80px;
       min-height: 100vh;
       background: rgba(10, 10, 15, 0.3) !important;
     }
     .page-header {
       text-align: center;
-      padding: 60px 0;
+      padding: clamp(40px, 8vw, 80px) 0;
       position: relative;
       background: transparent !important;
     }
     .page-title {
-      font-size: 3.5rem;
+      font-size: clamp(2.2rem, 8vw, 3.5rem);
       font-weight: 800;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: #fff;
     }
     .page-subtitle {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 3vw, 1.25rem);
       color: rgba(255, 255, 255, 0.7);
       max-width: 600px;
       margin: 0 auto;
+      padding: 0 20px;
     }
-    @media (max-width: 768px) {
-      .page-title {
-        font-size: 2.5rem;
+    @media (max-width: 480px) {
+      .page-header {
+        padding: 30px 0;
       }
     }
   `]

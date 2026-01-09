@@ -47,6 +47,6 @@
     </div>
 </section>
 
-@if (modalOpen()) {
+@if (isModalOpen()) {
 <app-template-preview-modal [template]="selectedTemplate()" (close)="closeModal()"></app-template-preview-modal>
 }

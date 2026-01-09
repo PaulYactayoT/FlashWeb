@@ -156,6 +156,19 @@
     .footer-content {
         grid-template-columns: 1fr;
         gap: 3rem;
+        text-align: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer-description {
+        margin: 0 auto;
+    }
+
+    .footer-contact {
+        align-items: center;
     }
 
     .footer-links {
@@ -165,12 +178,20 @@
 
 @media (max-width: 768px) {
     .footer {
-        padding: 3rem 0 1.5rem;
+        padding: 3rem 1rem 1.5rem;
     }
 
     .footer-links {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+    }
+
+    .footer-column {
+        align-items: center;
+
+        ul {
+            align-items: center;
+        }
     }
 
     .footer-bottom {

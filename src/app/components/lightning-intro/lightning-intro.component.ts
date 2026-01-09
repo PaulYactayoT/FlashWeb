@@ -21,7 +21,7 @@ export class LightningIntroComponent implements OnInit {
 
   ngOnInit() {
     // Check if animation has been shown in this session
-    const hasSeenIntro = sessionStorage.getItem('flashweb_intro_seen');
+    const hasSeenIntro = sessionStorage.getItem('flashwebuniverse_intro_seen');
 
     if (hasSeenIntro) {
       // Skip intro completely if already seen
@@ -37,7 +37,7 @@ export class LightningIntroComponent implements OnInit {
     // Remove from DOM after fade out completes
     setTimeout(() => {
       this.showIntro.set(false);
-      sessionStorage.setItem('flashweb_intro_seen', 'true');
+      sessionStorage.setItem('flashwebuniverse_intro_seen', 'true');
     }, 2600); // 2000ms display + 600ms fade out
   }
 }

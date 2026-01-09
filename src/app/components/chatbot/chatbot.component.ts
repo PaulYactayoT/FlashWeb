@@ -1,7 +1,8 @@
-import { Component, signal, ViewChild, ElementRef } from '@angular/core';
+import { Component, signal, ViewChild, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AiService, ChatMessage } from '../../services/ai.service';
+import { ModalService } from '../../services/modal.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -12,6 +13,8 @@ import { finalize } from 'rxjs/operators';
     styleUrl: './chatbot.component.scss'
 })
 export class ChatbotComponent {
+    private modalService = inject(ModalService);
+    isModalOpen = this.modalService.isOpen;
     isOpen = signal(false);
     isTyping = signal(false);
     messages = signal<ChatMessage[]>([]);

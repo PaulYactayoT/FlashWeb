@@ -1,4 +1,4 @@
-<div class="chatbot-container">
+<div class="chatbot-container" [class.hidden-behind-modal]="isModalOpen()">
 
     @if (isOpen()) {
     <div class="chatbot-window">

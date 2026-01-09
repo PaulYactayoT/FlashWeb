@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TemplatePreviewModalComponent } from '../template-preview-modal/template-preview-modal';
+import { ModalService } from '../../services/modal.service';
 
 interface Template {
     id: number;
@@ -24,8 +25,9 @@ interface Category {
     styleUrl: './template-showcase.component.scss'
 })
 export class TemplateShowcaseComponent {
+    private modalService = inject(ModalService);
     protected activeCategory = signal<string>('all');
-    protected modalOpen = signal<boolean>(false);
+    protected isModalOpen = this.modalService.isOpen;
     protected selectedTemplate = signal<Template | null>(null);
 
     protected categories: Category[] = [
@@ -111,12 +113,12 @@ export class TemplateShowcaseComponent {
         const template = this.templates.find(t => t.id === templateId);
         if (template) {
             this.selectedTemplate.set(template);
-            this.modalOpen.set(true);
+            this.modalService.openModal();
         }
     }
 
     closeModal() {
-        this.modalOpen.set(false);
+        this.modalService.closeModal();
         this.selectedTemplate.set(null);
     }
 }

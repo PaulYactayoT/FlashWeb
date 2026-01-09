@@ -16,7 +16,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     <main class="quienes-somos-page">
       <div class="page-header">
         <div class="container">
-          <h1 class="page-title"><span class="gradient-text">FlashWeb</span></h1>
+          <h1 class="page-title"><span class="gradient-text">FlashWebUniverse</span></h1>
           <div class="content-wrapper">
             <p class="description animate-up">
               Somos una empresa emergente especializada en el desarrollo de páginas web, plantillas profesionales y sistemas digitales a medida. Nacemos con el objetivo de ofrecer soluciones modernas, funcionales y accesibles, enfocadas en impulsar la presencia digital de negocios, emprendedores y marcas en crecimiento.
@@ -48,7 +48,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     }
     .page-header {
       text-align: center;
-      padding: 100px 0;
+      padding: clamp(40px, 8vw, 100px) 0;
       flex: 1;
       display: flex;
       align-items: center;
@@ -59,28 +59,28 @@ import { FooterComponent } from '../../components/footer/footer.component';
       padding: 0 20px;
     }
     .page-title {
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 8vw, 4rem);
       font-weight: 800;
-      margin-bottom: 40px;
+      margin-bottom: clamp(20px, 4vw, 40px);
       color: #fff;
     }
     .content-wrapper {
       background: rgba(255, 255, 255, 0.03);
-      padding: 60px;
-      border-radius: 30px;
+      padding: clamp(20px, 6vw, 60px);
+      border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
     .description {
-      font-size: 1.4rem;
-      line-height: 1.8;
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      line-height: 1.7;
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 30px;
-      text-align: justify;
+      margin-bottom: 25px;
+      text-align: left;
     }
     .description:nth-child(2) {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       font-weight: 500;
       color: #fff;
       text-align: center;
@@ -102,14 +102,16 @@ import { FooterComponent } from '../../components/footer/footer.component';
       font-weight: 600;
     }
     .project-link {
-      font-size: 1.8rem;
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
       color: #FFD700;
       text-decoration: none;
       font-weight: 700;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       transition: all 0.3s ease;
+      text-align: center;
     }
     .project-link:hover {
       color: #fff;
@@ -133,18 +135,9 @@ import { FooterComponent } from '../../components/footer/footer.component';
         transform: translateY(0);
       }
     }
-    @media (max-width: 768px) {
-      .page-title {
-        font-size: 2.8rem;
-      }
-      .content-wrapper {
-        padding: 40px 20px;
-      }
-      .description {
-        font-size: 1.1rem;
-      }
-      .project-link {
-        font-size: 1.4rem;
+    @media (max-width: 480px) {
+      .page-header {
+        padding: 40px 0;
       }
     }
   `]

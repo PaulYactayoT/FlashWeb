@@ -9,26 +9,26 @@
             </div>
 
             <div class="contact-form">
-                <form>
+                <form (submit)="onSubmit($event)">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nombre Completo</label>
-                            <input type="text" id="name" placeholder="Juan Pérez" required>
+                            <input type="text" id="name" name="name" placeholder="Juan Pérez" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="juan@ejemplo.com" required>
+                            <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Teléfono</label>
-                            <input type="tel" id="phone" placeholder="+1 234 567 890" required>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890" required>
                         </div>
                         <div class="form-group">
                             <label for="service">Servicio</label>
-                            <select id="service" required>
+                            <select id="service" name="service" required>
                                 <option value="">Selecciona un servicio</option>
                                 <option value="web-design">Diseño Web</option>
                                 <option value="development">Desarrollo Web</option>
@@ -40,13 +40,22 @@
 
                     <div class="form-group">
                         <label for="message">Mensaje</label>
-                        <textarea id="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..."
+                        <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..."
                             required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-gold btn-submit">
-                        Enviar Mensaje
-                    </button>
+                    <div class="submit-wrapper">
+                        <button type="submit" class="btn btn-gold btn-submit" [disabled]="isSubmitting()">
+                            {{ isSubmitting() ? 'Enviando...' : 'Enviar Mensaje' }}
+                        </button>
+
+                        @if (showSuccess()) {
+                        <div class="success-toast animate-in">
+                            <span class="toast-icon">✅</span>
+                            <span>¡Mensaje enviado con éxito!</span>
+                        </div>
+                        }
+                    </div>
                 </form>
             </div>
 

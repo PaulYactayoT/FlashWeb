@@ -75,6 +75,7 @@ export class TemplatePreviewModalComponent implements OnInit {
   protected activePropertyId = signal<number | null>(null);
   protected formSubmitted = signal(false);
   protected showTeam = signal(false);
+  protected mobileMenuOpen = signal(false);
 
   constructor(private businessDataService: BusinessDataService) { }
 
@@ -114,6 +115,10 @@ export class TemplatePreviewModalComponent implements OnInit {
     }, 1500);
   }
 
+  toggleMobileMenu() {
+    this.mobileMenuOpen.update(v => !v);
+  }
+
   private scrollToTop() {
     if (this.modalBodyContainer?.nativeElement) {
       this.modalBodyContainer.nativeElement.scrollTop = 0;
@@ -122,6 +127,7 @@ export class TemplatePreviewModalComponent implements OnInit {
 
   setTab(tab: string) {
     this.activeTab.set(tab);
+    this.mobileMenuOpen.set(false);
     // Reset property view when switching tabs in real estate
     if (tab === 'home') this.activePropertyId.set(null);
     this.scrollToTop();
@@ -427,5 +433,6 @@ export class TemplatePreviewModalComponent implements OnInit {
 
   onClose() {
     this.close.emit();
+    this.mobileMenuOpen.set(false);
   }
 }

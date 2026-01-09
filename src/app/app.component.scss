@@ -8,4 +8,9 @@
     z-index: -2;
     object-fit: fill;
     /* Forces the entire video to be visible by stretching if needed */
+
+    @media (max-width: 768px) {
+        object-fit: cover;
+        /* On mobile, we prefer cover to avoid stretching while maintaining aspect ratio */
+    }
 }

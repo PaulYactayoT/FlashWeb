@@ -88,12 +88,13 @@
 
     .mock-hero {
         position: relative;
-        height: 300px;
+        min-height: 300px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
         background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        padding: 4rem 1rem;
 
         .hero-overlay {
             position: absolute;
@@ -106,12 +107,12 @@
             z-index: 1;
             text-align: center;
             max-width: 700px;
-            padding: 0 20px;
+            padding: 0;
 
             h1 {
-                font-size: 2.5rem;
-                line-height: 1.1;
-                margin-bottom: 0.8rem;
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+                line-height: 1.2;
+                margin-bottom: 1rem;
                 font-weight: 700;
                 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
                 letter-spacing: 1px;
@@ -121,12 +122,12 @@
                 font-family: 'Lato', sans-serif;
                 color: #e2e8f0;
                 line-height: 1.5;
-                margin-bottom: 1rem;
-                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                font-size: clamp(0.9rem, 2.5vw, 1rem);
             }
 
             .btn-contact {
-                padding: 0.6rem 1.5rem;
+                padding: 0.75rem 2rem;
                 background: #fbbf24;
                 color: #0f172a;
                 border: none;
@@ -145,70 +146,71 @@
 
     .practice-areas {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
         max-width: 1200px;
-        margin: -1.5rem auto 2rem;
-        padding: 0 2rem;
+        margin: -2rem auto 2rem;
+        padding: 0 1.5rem;
         position: relative;
         z-index: 2;
 
         .area-card {
             background: white;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             border: 1px solid #d4af37;
             border-radius: 4px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 
             &:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-5px);
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
             }
 
             .icon-circle {
-                width: 50px;
-                height: 50px;
+                width: 60px;
+                height: 60px;
                 background: #d4af37;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 1.5rem;
-                margin: 0 auto 0.8rem;
+                font-size: 2rem;
+                margin: 0 auto 1rem;
             }
 
             h3 {
-                font-size: 0.95rem;
+                font-size: 1.1rem;
                 color: #0f172a;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.75rem;
                 font-weight: 700;
             }
 
             p {
                 color: #64748b;
                 font-family: 'Lato', sans-serif;
-                font-size: 0.75rem;
-                line-height: 1.4;
+                font-size: 0.85rem;
+                line-height: 1.5;
             }
         }
     }
 
     .contact-section {
         background: #1e293b;
-        padding: 2rem;
+        padding: 3rem 2rem;
         text-align: center;
 
         h2 {
-            font-size: 1.6rem;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
             color: #d4af37;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-weight: 700;
         }
 
         .contact-info-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             max-width: 900px;
             margin: 0 auto;
 
@@ -216,14 +218,17 @@
                 strong {
                     display: block;
                     color: #fbbf24;
-                    margin-bottom: 0.4rem;
-                    font-size: 0.85rem;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
                 }
 
                 p {
                     color: #cbd5e1;
                     font-family: 'Lato', sans-serif;
-                    font-size: 0.8rem;
+                    font-size: 0.9rem;
+                    line-height: 1.4;
                 }
             }
         }
@@ -316,12 +321,12 @@
     }
 
     .hero-ecommerce {
-        height: 300px;
+        min-height: 250px;
         background: url('/assets/wine-cellar.jpg') center/cover;
         position: relative;
         display: flex;
         align-items: center;
-        padding-left: 3rem;
+        padding: 2rem;
 
         .hero-overlay-e {
             position: absolute;
@@ -334,8 +339,8 @@
             z-index: 1;
 
             h1 {
-                font-size: 3rem;
-                line-height: 1;
+                font-size: clamp(1.8rem, 8vw, 3rem);
+                line-height: 1.1;
                 color: #FF8C00;
                 font-weight: 900;
             }
@@ -344,9 +349,9 @@
 
     .products-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 1.5rem;
-        padding: 2rem;
+        padding: 2rem 1.5rem;
         background: white;
         max-width: 1200px;
         margin: -2rem auto 0;
@@ -357,13 +362,18 @@
             background: #fff;
             border: 1px solid #eee;
             border-radius: 4px;
-            padding: 1rem;
+            padding: 1.25rem;
             text-align: center;
             color: #000;
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
 
             .product-img-e {
                 width: 100%;
-                height: 150px;
+                height: 180px;
                 object-fit: cover;
                 background: #f5f5f5;
                 margin-bottom: 1rem;
@@ -374,24 +384,27 @@
                 font-size: 1rem;
                 margin: 0.5rem 0;
                 color: #000;
+                font-weight: 700;
             }
 
             .price-e {
                 font-size: 1.2rem;
                 font-weight: 700;
                 color: #000;
-                margin: 0.5rem 0;
+                margin: 0.5rem 0 1rem;
             }
 
             .btn-add-cart {
                 width: 100%;
-                padding: 0.6rem;
+                padding: 0.75rem;
                 background: #FF8C00;
                 color: white;
                 border: none;
                 cursor: pointer;
                 font-weight: 600;
                 border-radius: 3px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
 
                 &:hover {
                     background: #e67e00;
@@ -402,17 +415,21 @@
 
     .footer-ecommerce {
         background: #1a1a1a;
-        padding: 2rem;
-        display: flex;
-        justify-content: space-around;
+        padding: 3rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
         color: #aaa;
         font-size: 0.85rem;
+        text-align: center;
 
         .footer-section {
             strong {
                 display: block;
                 color: #fff;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
             }
         }
     }
@@ -499,34 +516,41 @@
 
     .hero-pharmacy {
         background: white;
-        padding: 3rem 2rem;
+        padding: 3rem 1.5rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
 
         .hero-left-p {
+            text-align: center;
+
             h1 {
-                font-size: 2.5rem;
+                font-size: clamp(2rem, 6vw, 2.8rem);
                 color: #000;
                 margin-bottom: 1rem;
+                line-height: 1.2;
             }
 
             p {
                 color: #666;
-                margin-bottom: 1.5rem;
+                margin-bottom: 2rem;
+                font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             }
 
             .btn-visit {
-                padding: 0.8rem 1.8rem;
+                padding: 1rem 2.5rem;
                 background: #2D9F4E;
                 color: white;
                 border: none;
-                border-radius: 20px;
+                border-radius: 30px;
                 cursor: pointer;
-                font-weight: 600;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background 0.3s;
 
                 &:hover {
                     background: #228B41;
@@ -537,73 +561,94 @@
         .hero-right-p {
             .pharmacist-img {
                 width: 100%;
-                height: 300px;
+                height: clamp(250px, 40vw, 400px);
                 object-fit: cover;
                 background: #e8f5e9;
-                border-radius: 8px;
+                border-radius: 12px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             }
         }
     }
 
     .categories-pharmacy {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
         max-width: 1200px;
         margin: 2rem auto;
-        padding: 0 2rem;
+        padding: 0 1.5rem;
 
         .category-card-p {
             background: #2D9F4E;
             color: white;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
 
             h3 {
-                font-size: 1.3rem;
-                margin-bottom: 0.5rem;
+                font-size: 1.4rem;
+                margin-bottom: 0.75rem;
+                font-weight: 700;
             }
 
             p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
                 opacity: 0.9;
+                line-height: 1.4;
             }
         }
     }
 
     .products-pharmacy {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 1.5rem;
         max-width: 1200px;
         margin: 2rem auto;
-        padding: 0 2rem;
+        padding: 0 1.5rem;
 
         .product-p {
             background: white;
-            padding: 1rem;
+            padding: 1.25rem;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 12px;
             position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.3s;
+
+            &:hover {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            }
 
             .product-img-p {
                 width: 100%;
-                height: 150px;
+                height: 180px;
                 object-fit: contain;
-                background: #f5f5f5;
-                margin-bottom: 1rem;
-                border-radius: 4px;
+                background: #f8fafc;
+                margin-bottom: 1.25rem;
+                border-radius: 8px;
             }
 
             .badge-envio {
-                background: #2D9F4E;
-                color: white;
-                padding: 0.3rem 0.6rem;
-                font-size: 0.7rem;
+                background: #e8f5e9;
+                color: #2D9F4E;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
                 font-weight: 700;
-                border-radius: 15px;
+                border-radius: 20px;
                 display: inline-block;
+                margin-top: 0.5rem;
+            }
+
+            h4 {
+                font-size: 1.05rem;
+                font-weight: 600;
+                margin: 0.5rem 0;
             }
         }
     }
@@ -682,90 +727,130 @@
     }
 
     .hero-realestate {
-        height: 400px;
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/luxury-pool.jpg') center/cover;
+        min-height: 400px;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/luxury-pool.jpg') center/cover;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 4rem 2rem;
+        text-align: center;
 
         .search-box-hero {
             background: white;
-            padding: 1rem;
-            border-radius: 30px;
+            padding: 1.5rem;
+            border-radius: 20px;
             display: flex;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+                padding: 1rem;
+                border-radius: 40px;
+            }
 
             .search-item {
-                padding: 0.7rem 1.5rem;
-                background: #f5f5f5;
-                border: none;
-                border-radius: 20px;
+                padding: 0.8rem 1.5rem;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
                 cursor: pointer;
-                font-size: 0.85rem;
+                font-size: 0.9rem;
+                flex: 1;
+
+                @media (min-width: 768px) {
+                    border: none;
+                    background: transparent;
+                }
             }
 
             .btn-search-hero {
-                padding: 0.7rem 2rem;
+                padding: 1rem 2rem;
                 background: #1E5F6F;
                 color: white;
                 border: none;
-                border-radius: 20px;
+                border-radius: 12px;
                 cursor: pointer;
                 font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+
+                @media (min-width: 768px) {
+                    border-radius: 30px;
+                }
             }
         }
     }
 
     .properties-section {
-        padding: 3rem 2rem;
+        padding: 4rem 1.5rem;
         max-width: 1200px;
         margin: 0 auto;
 
         h2 {
             text-align: center;
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             color: #1E5F6F;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 800;
         }
 
         .properties-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
 
             .property-card-r {
+                transition: transform 0.3s;
+
+                &:hover {
+                    transform: translateY(-8px);
+                }
+
                 .property-img-r {
-                    height: 200px;
-                    background-color: #e5e7eb;
+                    height: 240px;
+                    background-color: #f1f5f9;
                     background-size: cover;
                     background-position: center;
-                    border-radius: 8px;
+                    border-radius: 12px;
                     position: relative;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    padding: 1rem;
+                    padding: 1.25rem;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
                     .property-price {
                         background: #1E5F6F;
                         color: white;
-                        padding: 0.4rem 0.8rem;
-                        border-radius: 4px;
+                        padding: 0.5rem 1rem;
+                        border-radius: 6px;
                         font-weight: 700;
                         display: inline-block;
                         align-self: flex-start;
+                        font-size: 1.1rem;
                     }
 
                     .btn-details {
                         background: white;
-                        color: #000;
+                        color: #1E5F6F;
                         border: none;
-                        padding: 0.6rem 1.2rem;
-                        border-radius: 20px;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 30px;
                         cursor: pointer;
-                        font-weight: 600;
-                        font-size: 0.8rem;
+                        font-weight: 700;
+                        font-size: 0.9rem;
                         align-self: center;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s;
+
+                        &:hover {
+                            background: #1E5F6F;
+                            color: white;
+                        }
                     }
                 }
             }
@@ -773,52 +858,65 @@
     }
 
     .agents-section {
-        background: #e0f2f1;
-        padding: 3rem 2rem;
+        background: #f0fdfa;
+        padding: 4rem 1.5rem;
 
         h2 {
             text-align: center;
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             color: #1E5F6F;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 800;
         }
 
         .agents-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
 
             .agent-card {
                 text-align: center;
                 background: white;
-                padding: 1rem;
-                border-radius: 8px;
+                padding: 2rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s;
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
 
                 .agent-img {
-                    width: 100px;
-                    height: 100px;
+                    width: 120px;
+                    height: 120px;
                     border-radius: 50%;
-                    background: #ddd;
-                    margin: 0 auto 1rem;
+                    background: #f1f5f9;
+                    margin: 0 auto 1.5rem;
                     object-fit: cover;
+                    border: 4px solid #f0fdfa;
                 }
 
                 h4 {
-                    font-size: 1rem;
-                    margin-bottom: 0.3rem;
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                    color: #1e293b;
+                    font-weight: 700;
                 }
 
                 p {
-                    font-size: 0.85rem;
-                    color: #666;
-                    margin: 0.2rem 0;
+                    font-size: 0.95rem;
+                    color: #64748b;
+                    margin: 0.25rem 0;
                 }
 
                 .agent-email {
-                    font-size: 0.75rem;
+                    font-size: 0.85rem;
                     color: #1E5F6F;
+                    font-weight: 600;
+                    margin-top: 0.5rem;
+                    display: block;
                 }
             }
         }
